@@ -1,25 +1,26 @@
-package com.fiap.webservices.models;
+package com.fiap.webservices.models.canonical;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 
-
-public class User implements Serializable{
+@Document
+public class Usuario implements Serializable{
     @Id
     private String cpf;
     private String email;
     private String nome;
     private String password;
 
-    public User(String cpf, String email, String nome, String password) {
+    public Usuario(String cpf, String email, String nome, String password) {
         this.cpf = cpf;
         this.email = email;
         this.nome = nome;
         this.password = password;
     }
 
-    public User() { }
+    public Usuario() { }
 
     public String getCpf() {
         return cpf;

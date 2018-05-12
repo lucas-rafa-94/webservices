@@ -1,7 +1,7 @@
 package com.fiap.webservices.service;
 
-import com.fiap.webservices.models.ResponseCall;
-import com.fiap.webservices.models.User;
+import com.fiap.webservices.models.business.ResponseCall;
+import com.fiap.webservices.models.canonical.Usuario;
 import com.fiap.webservices.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +17,10 @@ public class UserService {
 
     }
 
-    public ResponseCall criaUser(User user){
+    public ResponseCall criaUser(Usuario usuario){
         ResponseCall responseCall = new ResponseCall();
         try{
-            userRepository.save(user);
+            userRepository.save(usuario);
             responseCall.setResponse("Sucesso");
             responseCall.setDescricao("Usuario criado com sucesso");
         }catch (Exception e){
@@ -28,5 +28,9 @@ public class UserService {
             responseCall.setDescricao(e.getMessage());
         }
         return responseCall;
+    }
+
+    public Usuario findByEmailAndPassword(String email, String password){
+        return userRepository.findByEmailEqualsAndPassword(email, password);
     }
 }

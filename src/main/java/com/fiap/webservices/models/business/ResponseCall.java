@@ -1,4 +1,4 @@
-package com.fiap.webservices.models;
+package com.fiap.webservices.models.business;
 
 import org.springframework.stereotype.Service;
 
