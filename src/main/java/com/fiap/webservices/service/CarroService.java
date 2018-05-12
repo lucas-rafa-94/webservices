@@ -31,7 +31,11 @@ public class CarroService {
         return carroRepository.findCarrosByStatusEquals(status);
     }
 
-    public Carro findByChassi(int chassi){
+    public Carro findByChassi(String chassi){
         return carroRepository.findByChassi(chassi);
+    }
+
+    public List<Carro> getAll(){
+        return carroRepository.findAll();
     }
 }

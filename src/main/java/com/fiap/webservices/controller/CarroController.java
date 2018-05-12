@@ -23,4 +23,16 @@ public class CarroController {
     public List<Carro> carrosDisponiveis(){
         return carroService.buscaCarrosDisponiveis("DISPONIVEL");
     }
+
+    @GetMapping("/getAll")
+    public List<Carro> getAllCarros(){
+        return carroService.getAll();
+    }
+
+    @GetMapping
+    public Carro getCarro(@RequestParam String chassi){
+        return carroService.findByChassi(chassi);
+    }
+
+
 }
