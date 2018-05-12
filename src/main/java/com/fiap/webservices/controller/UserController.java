@@ -20,5 +20,5 @@ public class UserController {
     @GetMapping("/valida-login")
     public Usuario findByEmailAndPassword(@RequestParam String email, @RequestParam String password){
         return userService.findByEmailAndPassword(email, password);
-    };
+    }
 }

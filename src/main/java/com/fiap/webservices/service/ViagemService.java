@@ -5,6 +5,7 @@ import com.fiap.webservices.models.business.ResponseViagem;
 import com.fiap.webservices.models.canonical.Carro;
 import com.fiap.webservices.models.canonical.Viagem;
 import com.fiap.webservices.repository.ViagemRepository;
+import com.fiap.webservices.uitils.ViagemUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +22,13 @@ public class ViagemService {
     CarroService carroService;
 
     public ResponseViagem criaViagem(Viagem viagem){
+        ViagemUtils viagemUtils = new ViagemUtils();
         ResponseViagem responseViagem = new ResponseViagem();
         String id = viagem.getCarro().getChassi() + viagem.getCarro().getUsuario().getCpf() + LocalTime.now().toString().replace(":","").replace(".","");
         try{
             responseViagem.setIdViagem(id);
             viagem.setViagem(id);
+            viagem.setValor(viagemUtils.calculaValor(viagem.getLocalizacaoUsuario(), viagem.getLocalizacaoCarro()));
             viagemRepository.save(viagem);
         }catch (Exception e){
             e.printStackTrace();
