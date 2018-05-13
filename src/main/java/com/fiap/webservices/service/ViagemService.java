@@ -1,11 +1,10 @@
 package com.fiap.webservices.service;
 
-import com.fiap.webservices.models.business.ResponseCall;
 import com.fiap.webservices.models.business.ResponseViagem;
 import com.fiap.webservices.models.canonical.Carro;
 import com.fiap.webservices.models.canonical.Viagem;
 import com.fiap.webservices.repository.ViagemRepository;
-import com.fiap.webservices.uitils.ViagemUtils;
+import com.fiap.webservices.utils.ViagemUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,6 +2,7 @@ package com.fiap.webservices.controller;
 
 import com.fiap.webservices.models.canonical.Carro;
 import com.fiap.webservices.models.business.ResponseCall;
+import com.fiap.webservices.service.CalcService;
 import com.fiap.webservices.service.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ import java.util.List;
 public class CarroController {
     @Autowired
     CarroService carroService;
+
+    @Autowired
+    CalcService calcService;
 
     @PostMapping
     public ResponseCall insert(@RequestBody Carro carro){
@@ -32,6 +36,11 @@ public class CarroController {
     @GetMapping
     public Carro getCarro(@RequestParam String chassi){
         return carroService.findByChassi(chassi);
+    }
+
+    @GetMapping("/calc")
+    public Double getCalc(){
+        return calcService.calcService();
     }
 
 

@@ -28,4 +28,9 @@ public class Localizacao {
     public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
+
+    @Override
+    public String toString() {
+        return latitude + "," + longitude;
+    }
 }
