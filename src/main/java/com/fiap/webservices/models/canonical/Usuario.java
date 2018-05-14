@@ -30,6 +30,10 @@ public class Usuario implements UserDetails {
 
     public Usuario() { }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getCpf() {
         return cpf;
     }
@@ -44,7 +48,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return grantedAuthorities;
     }
 
     public String getPassword() {
@@ -53,27 +57,27 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
 }
