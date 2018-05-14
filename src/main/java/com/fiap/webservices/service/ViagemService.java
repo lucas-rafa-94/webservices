@@ -20,15 +20,31 @@ public class ViagemService {
     @Autowired
     CarroService carroService;
 
+
     public ResponseViagem criaViagem(Viagem viagem){
+
         ViagemUtils viagemUtils = new ViagemUtils();
         ResponseViagem responseViagem = new ResponseViagem();
         String id = viagem.getCarro().getChassi() + viagem.getCarro().getUsuario().getCpf() + LocalTime.now().toString().replace(":","").replace(".","");
+
         try{
+
             responseViagem.setIdViagem(id);
             viagem.setViagem(id);
+            viagem.setStatus("EM ANDAMENTO");
             viagem.setValor(viagemUtils.calculaValor(viagem.getLocalizacaoUsuario(), viagem.getLocalizacaoCarro()));
+
             viagemRepository.save(viagem);
+
+
+            Carro carro = new Carro();
+            carro = viagem.getCarro();
+            carro.setStatus("PENDENTE");
+            carro.setUsuario(viagem.getCarro().getUsuario());
+
+            carroService.criaCarro(carro);
+
+
         }catch (Exception e){
             e.printStackTrace();
         }

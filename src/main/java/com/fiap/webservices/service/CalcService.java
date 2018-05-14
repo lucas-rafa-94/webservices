@@ -1,7 +1,8 @@
 package com.fiap.webservices.service;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
+@Service
 public class CalcService {
 
     RestTemplate restTemplate = new RestTemplate();

@@ -28,7 +28,7 @@ public class ViagemController {
 
     @GetMapping("/getAll")
     public List<Viagem> getAllViagem(){
-        return viagemService.findAll(   );
+        return viagemService.findAll();
     }
 
     @GetMapping

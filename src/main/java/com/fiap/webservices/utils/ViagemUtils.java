@@ -14,12 +14,10 @@ public  class ViagemUtils {
 
     private Double PRECO_POR_METRO = 0.003d;
 
-    @Autowired
-    private RestTemplate restTemplate;
-
     public double calculaValor(Localizacao localizacaoUsuario, Localizacao localizacaoCarro) throws JSONException {
+        RestTemplate restTemplate = new RestTemplate();
 
-        String s = restTemplate.getForObject("https://maps.googleapis.com/maps/api/directions/json?origin="+localizacaoCarro+"&destination="+localizacaoUsuario+"&key=AIzaSyCGBhnp8Nlhz0J47MYTXvkZweqbExjzGVM", String.class);
+        String s = restTemplate.getForObject("https://maps.googleapis.com/maps/api/directions/json?origin="+localizacaoCarro.getLatitude()+","+localizacaoCarro.getLongitude()+"&destination="+localizacaoUsuario.getLatitude()+","+localizacaoUsuario.getLongitude()+"&key=AIzaSyCGBhnp8Nlhz0J47MYTXvkZweqbExjzGVM", String.class);
         JSONArray js = null;
         JSONObject json = null;
         JSONObject distancia = null;
