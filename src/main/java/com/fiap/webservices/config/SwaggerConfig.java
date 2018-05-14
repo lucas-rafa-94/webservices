@@ -1,4 +1,4 @@
-package com.fiap.webservices;
+package com.fiap.webservices.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

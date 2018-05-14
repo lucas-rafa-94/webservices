@@ -1,4 +1,4 @@
-package com.fiap.webservices;
+package com.fiap.webservices.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -19,9 +19,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests().anyRequest().authenticated().and().httpBasic().authenticationEntryPoint(authEntryPoint);
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        //auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-        //auth.authenticationEventPublisher()
-    }
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        //auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+//        //auth.authenticationEventPublisher()
+//    }
 }

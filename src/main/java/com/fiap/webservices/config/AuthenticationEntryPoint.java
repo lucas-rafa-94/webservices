@@ -1,4 +1,4 @@
-package com.fiap.webservices;
+package com.fiap.webservices.config;
 
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -23,7 +23,7 @@ public class AuthenticationEntryPoint extends BasicAuthenticationEntryPoint {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        setRealmName("DeveloperStack");
+        setRealmName("Developer");
         super.afterPropertiesSet();
     }
 
