@@ -20,24 +20,24 @@ import java.util.List;
 public class ViagemController {
 
     @Autowired
-    ViagemService viagemService;
+    private ViagemService viagemService;
 
     @PostMapping
     public ResponseViagem insert(@RequestBody Viagem viagem){
-         return viagemService.criaViagem(viagem);
+        return viagemService.criaViagem(viagem);
     }
 
-    @GetMapping("/getAll")
-    public List<Viagem> getAllViagem(){
+    @GetMapping("/")
+    public List<Viagem> getAllViagens(){
         return viagemService.findAll();
     }
 
-    @GetMapping
-    public Viagem getViagem(@RequestParam String id){
+    @GetMapping("/{id}")
+    public Viagem getViagem(@PathVariable String id){
         return viagemService.findById(id);
     }
 
-    @PostMapping("/update")
+    @PutMapping("/")
     public Viagem update(@RequestBody Viagem viagem){
         viagemService.update(viagem);
         return viagem;

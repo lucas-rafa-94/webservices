@@ -9,7 +9,5 @@ import java.util.List;
 
 @Repository
 public interface CarroRepository extends MongoRepository<Carro, String> {
-    @Query("{ 'status' :  ?0  }")
-    List<Carro> findCarrosByStatusEquals(String status);
-    Carro findByChassi(String chassi);
+
 }

@@ -7,10 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Carro {
 
-    private String marca;
-    private String modelo;
     @Id
     private String chassi;
+    private String marca;
+    private String modelo;
     private String status;
     private Usuario usuario;
     private Localizacao localizacao;

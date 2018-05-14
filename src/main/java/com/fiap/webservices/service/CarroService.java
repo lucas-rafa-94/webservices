@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class CarroService {
+
     @Autowired
     CarroRepository carroRepository;
 
@@ -27,12 +28,8 @@ public class CarroService {
         return responseCall;
     }
 
-    public List<Carro> buscaCarrosDisponiveis(String status){
-        return carroRepository.findCarrosByStatusEquals(status);
-    }
-
     public Carro findByChassi(String chassi){
-        return carroRepository.findByChassi(chassi);
+        return carroRepository.findById(chassi).orElse(null);
     }
 
     public List<Carro> getAll(){
