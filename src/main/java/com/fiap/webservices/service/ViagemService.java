@@ -67,7 +67,7 @@ public class ViagemService {
     }
 
     public Viagem findById(String id){
-        return viagemRepository.findByViagem(id);
+        return viagemRepository.findById(id).orElseGet(null);
     }
 
     public List<Viagem> findAll(){

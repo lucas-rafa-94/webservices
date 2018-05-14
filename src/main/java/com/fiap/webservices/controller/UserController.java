@@ -9,16 +9,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/")
 public class UserController {
+
     @Autowired
     UserService userService;
 
     @PostMapping
     public ResponseCall insertUser(@RequestBody Usuario usuario){
-        return userService.criaUser(usuario);
+        return userService.createUser(usuario);
     }
 
-    @GetMapping("/valida-login")
-    public Usuario findByEmailAndPassword(@RequestParam String email, @RequestParam String password){
-        return userService.findByEmailAndPassword(email, password);
-    }
 }

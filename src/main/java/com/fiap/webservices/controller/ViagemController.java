@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/viagem")
 public class ViagemController {
+
     @Autowired
     ViagemService viagemService;
 

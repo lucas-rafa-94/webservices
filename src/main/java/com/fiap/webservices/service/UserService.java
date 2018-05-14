@@ -4,10 +4,14 @@ import com.fiap.webservices.models.business.ResponseCall;
 import com.fiap.webservices.models.canonical.Usuario;
 import com.fiap.webservices.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
+
     @Autowired
     UserRepository userRepository;
     private ResponseCall responseCall;
@@ -17,7 +21,7 @@ public class UserService {
 
     }
 
-    public ResponseCall criaUser(Usuario usuario){
+    public ResponseCall createUser(Usuario usuario){
         ResponseCall responseCall = new ResponseCall();
         try{
             userRepository.save(usuario);
@@ -30,7 +34,8 @@ public class UserService {
         return responseCall;
     }
 
-    public Usuario findByEmailAndPassword(String email, String password){
-        return userRepository.findByEmailEqualsAndPassword(email, password);
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByEmail(username);
     }
 }

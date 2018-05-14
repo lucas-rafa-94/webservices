@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ViagemRepository extends MongoRepository<Viagem, String> {
-    Viagem findByViagem(String id);
+
 }
