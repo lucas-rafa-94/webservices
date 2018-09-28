@@ -37,6 +37,7 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-security")
 	compile ('org.json:json:20090211')
+	testCompile("junit:junit:4.11")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
 }

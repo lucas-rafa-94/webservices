@@ -24,7 +24,12 @@ public  class ViagemClient {
                         localizacaoCarro.getLatitude(), localizacaoCarro.getLongitude(),
                         localizacaoUsuario.getLatitude(), localizacaoUsuario.getLongitude()), GoogleResponse.class);
 
-        return (response.getRoutes().getLegs().getDistance().getValue() * PRECO_POR_METRO) + TAXA;
+        return retornaCalc(response.getRoutes().getLegs().getDistance().getValue());
 
+    }
+    
+    
+    public Double retornaCalc(Double distancia) {
+    	return (distancia * PRECO_POR_METRO) + TAXA;
     }
 }
